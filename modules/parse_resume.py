@@ -36,7 +36,8 @@ def get_groq_client() -> Groq:
 
 # ── Prompt loader ─────────────────────────────────────────────────────────────
 def load_prompt(resume_text: str) -> str:
-    prompt_path = Path(__file__).parent / "prompts" / "parse_resume.txt"
+    project_root = Path(__file__).resolve().parent.parent
+    prompt_path = project_root / "prompts" / "parse_resume.txt"
     template = prompt_path.read_text()
     return template.replace("{resume_text}", resume_text)
 
@@ -192,7 +193,7 @@ if __name__ == "__main__":
     import sys
 
     if len(sys.argv) < 2:
-        print("Usage: python modules/parse_resume.py <path_to_resume.pdf>")
+        print("Usage: python -m modules.parser <path_to_resume.pdf>")
         sys.exit(1)
 
     pdf_path = Path(sys.argv[1])
