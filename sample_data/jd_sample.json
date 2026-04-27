@@ -1,0 +1,16 @@
+{
+  "title": "Senior Backend Engineer",
+  "summary": "Build and scale API services for AI applications.",
+  "requirements": [
+    "Python",
+    "FastAPI",
+    "PostgreSQL",
+    "Vector databases",
+    "Cloud deployment"
+  ],
+  "nice_to_have": [
+    "LangGraph",
+    "Pinecone",
+    "LLM evaluation"
+  ]
+}
