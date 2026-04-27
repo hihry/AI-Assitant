@@ -125,7 +125,7 @@ resume-shortlister/
 ├── Architecture.md                # System design notes
 ├── requirements.txt
 ├── README.md
-├── Readme2.md
+├── .gitignore
 ├── .env.example
 │
 ├── .streamlit/
@@ -136,9 +136,7 @@ resume-shortlister/
 │   ├── parse_resume.py            # Node 1: PDF → ResumeJSON
 │   ├── similarity.py              # Node 2: Pinecone similarity search
 │   ├── scorer.py                  # Node 3: LLM scoring
-│   ├── build_report.py            # Node 4: final report assembly
-│   ├── question_gen.py            # Question generation helper (stub)
-│   └── verifier.py                # Candidate verification helper (stub)
+│   └── build_report.py            # Node 4: final report assembly
 │
 ├── prompts/
 │   ├── parse_resume.txt           # Resume parsing prompt
