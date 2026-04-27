@@ -1,16 +1,31 @@
 {
-  "title": "Senior Backend Engineer",
-  "summary": "Build and scale API services for AI applications.",
+  "id": "jd-backend-001",
+  "title": "Senior Backend Engineer (Distributed Systems)",
+  "company": "TechCorp",
   "requirements": [
-    "Python",
-    "FastAPI",
-    "PostgreSQL",
-    "Vector databases",
-    "Cloud deployment"
+    "5+ years of backend development experience, with at least 2 years leading the design of business-critical microservices.",
+    "Expert proficiency in Python (FastAPI/Asyncio) or Go (Concurrency patterns, Goroutines) with a focus on writing memory-efficient, thread-safe code.",
+    "Deep experience with Apache Kafka, including partition tuning, consumer group management, and implementing idempotent producers for exactly-once processing.",
+    "Advanced PostgreSQL knowledge: Indexing strategies, query optimization, connection pooling (PgBouncer), and experience with horizontal scaling (sharding or Read Replicas).",
+    "Hands-on experience with Docker and Kubernetes (K8s), including writing Helm charts, configuring HPA (Horizontal Pod Autoscaler), and managing resource limits/quotas.",
+    "Proven track record in RESTful and gRPC API design, specifically focusing on versioning strategies, rate-limiting, and comprehensive OpenAPI/Swagger documentation.",
+    "Operational experience with AWS (EKS, RDS, S3) or GCP (GKE, Cloud Spanner), including IAM least-privilege security and VPC networking.",
+    "Experience building and maintaining CI/CD pipelines using GitHub Actions or GitLab CI, with an emphasis on automated testing (Unit, Integration, and E2E).",
+    "Strong understanding of Distributed Systems: CAP theorem, distributed locking, circuit breakers, and consensus algorithms (Raft/Paxos).",
+    "Proficiency with Terraform for Infrastructure as Code (IaC), including module development and state management."
   ],
   "nice_to_have": [
-    "LangGraph",
-    "Pinecone",
-    "LLM evaluation"
+    "Active contributions to open-source projects or a history of technical blogging/mentorship.",
+    "Experience with Observability stacks: OpenTelemetry, Prometheus, Grafana, and Jaeger for distributed tracing.",
+    "Knowledge of Security-by-Design: OWASP Top 10, OAuth 2.1/OIDC, and secret management (HashiCorp Vault/AWS Secrets Manager).",
+    "Familiarity with Vector Databases (Pinecone, Weaviate) or RAG pipeline orchestration for AI-integrated services."
+  ],
+  "responsibilities": [
+    "Architect and implement high-throughput, low-latency backend services capable of handling 10k+ requests per second.",
+    "Lead technical RFC (Request for Comments) processes, driving consensus on architecture decisions across multiple engineering teams.",
+    "Own the full lifecycle of critical infrastructure components, from initial capacity planning to post-deployment scaling and incident response.",
+    "Optimize system performance by identifying bottlenecks through profiling (cProfile, pprof) and implementing intelligent caching layers with Redis.",
+    "Collaborate with Product and Frontend teams to define robust API contracts, ensuring backward compatibility and seamless integration.",
+    "Mentor junior and mid-level engineers through high-quality code reviews, pair programming, and internal tech talks."
   ]
 }
