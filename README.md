@@ -86,6 +86,12 @@ PDF Resume
 Streamlit UI renders everything
 ```
 
+![Pipeline execution and control panel](Images/Screenshot%202026-04-27%20203847.png)
+
+This view shows the end-to-end pipeline execution state from resume upload to final report assembly.
+The left panel mirrors the operational flow: upload resume, provide JD, optionally seed Pinecone, then evaluate.
+The status messages make node-level progress explicit for easier debugging and demos.
+
 ---
 
 ## 4D Scoring Model
@@ -98,6 +104,12 @@ Streamlit UI renders everything
 | Ownership | Groq/Llama | 15% | Strong vs weak action verbs |
 
 **Tier classification:** A ≥ 75 / B ≥ 50 / C < 50
+
+![4D score cards in UI](Images/Screenshot%202026-04-27%20203926.png)
+
+These score cards visualize the four weighted dimensions used in final ranking.
+Each card surfaces both the raw score and its configured weight, reinforcing scoring transparency.
+The compact layout helps recruiters scan candidate strength patterns quickly.
 
 ---
 
@@ -248,6 +260,12 @@ Green Flags:
   ✓ All 4 projects have quantified impact metrics
   ✓ Strong ownership verbs throughout (built, led, architected, owned)
 ```
+
+![Reasoning, semantic evidence, and flags](Images/Screenshot%202026-04-27%20203941.png)
+
+This section demonstrates explainability in practice: per-dimension reasoning, semantic match evidence, and risk signals.
+The cosine evidence table grounds similarity scoring in concrete resume-to-JD mappings.
+Red and green flags translate model output into actionable hiring guidance.
 
 ---
 
