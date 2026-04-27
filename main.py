@@ -11,6 +11,8 @@
 
 import streamlit as st
 import pandas as pd
+import json
+from pathlib import Path
 
 # ==========================================
 # 1. Page Configuration
@@ -52,6 +54,33 @@ mock_report = {
     "evaluated_at": "2025-04-27T10:00:00Z",
 }
 
+
+def run_pipeline_and_get_report(pdf_bytes: bytes, jd_data: dict) -> dict:
+    from graph import app
+
+    result = app.invoke(
+        {
+            "jd_text": json.dumps(jd_data),
+            "pdf_bytes": pdf_bytes,
+            "resume_json": None,
+            "pinecone_matches": None,
+            "score_result": None,
+            "final_report": None,
+        }
+    )
+    return result["final_report"]
+
+
+def load_default_jd() -> dict:
+    jd_path = Path("sample_data/jd_sample.json")
+    if jd_path.exists():
+        return json.loads(jd_path.read_text(encoding="utf-8"))
+    return {
+        "title": "Job Description",
+        "requirements": [],
+        "responsibilities": [],
+    }
+
 # ==========================================
 # 3. Helper Functions (Adapted for Web)
 # ==========================================
@@ -87,6 +116,32 @@ def render_progress_bar(score, label=""):
 # ==========================================
 # 4. Main UI Layout
 # ==========================================
+
+with st.expander("Run Real Evaluation", expanded=False):
+    uploaded_pdf = st.file_uploader("Upload Resume PDF", type=["pdf"])
+    default_jd_data = load_default_jd()
+    jd_text_input = st.text_area(
+        "JD JSON",
+        value=json.dumps(default_jd_data, indent=2),
+        height=240,
+    )
+
+    if st.button("Run Pipeline", type="primary"):
+        if not uploaded_pdf:
+            st.error("Please upload a resume PDF first.")
+        else:
+            try:
+                jd_data = json.loads(jd_text_input)
+                with st.spinner("Running parse -> similarity -> scorer -> report..."):
+                    report = run_pipeline_and_get_report(uploaded_pdf.read(), jd_data)
+                st.session_state["report"] = report
+                st.success("Evaluation complete.")
+            except json.JSONDecodeError as exc:
+                st.error(f"JD JSON is invalid: {exc}")
+            except Exception as exc:
+                st.error(f"Pipeline failed: {exc}")
+
+mock_report = st.session_state.get("report", mock_report)
 
 # --- Header Section ---
 col1, col2 = st.columns([3, 1])
