@@ -10,7 +10,7 @@ PINECONE_API_KEY = os.getenv("PINECONE_API_KEY", "")
 
 # --- Pinecone ---
 PINECONE_INDEX_NAME = "resume-shortlister"
-PINECONE_DIMENSION  = 512           # all-MiniLM-L6-v2 output dim (local, free)
+PINECONE_DIMENSION  = 384           # all-MiniLM-L6-v2 output dim (local, free)
 PINECONE_METRIC     = "cosine"
 PINECONE_CLOUD      = "aws"
 PINECONE_REGION     = "us-east-1"
