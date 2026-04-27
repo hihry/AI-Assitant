@@ -195,27 +195,3 @@ Overall = (Exact × 0.30) + (Similarity × 0.35) + (Achievement × 0.20) + (Owne
 | Config | python-dotenv | free |
 
 ---
-
-## File Map
-
-```
-resume-shortlister/
-├── main.py                  Streamlit UI — sidebar inputs, report rendering
-├── graph.py                 LangGraph graph definition and compiled app
-├── state.py                 PipelineState TypedDict
-├── ingest_jd.py             JD ingestion — chunk, embed, upsert to Pinecone
-├── config.py                All constants: model names, weights, thresholds
-├── modules/
-│   ├── parse_resume.py      Node 1 — PDF → ResumeJSON via Groq/Llama
-│   ├── similarity.py        Node 2 — Pinecone cosine query + similarity score
-│   ├── scorer.py            Node 3 — Exact/Achievement/Ownership via Groq + merge
-│   └── build_report.py      Node 4 — final report assembly (pure Python)
-├── prompts/
-│   ├── parse_resume.txt     Llama prompt: PDF extraction schema
-│   └── score_candidate.txt  Llama prompt: 3D scoring with reasoning
-├── sample_data/
-│   ├── jd_sample.json       Sample JD (includes Kafka/Kinesis edge case)
-│   └── resume_sample.pdf    Sample resume for end-to-end testing
-└── docs/
-    └── architecture.md      This document
-```
