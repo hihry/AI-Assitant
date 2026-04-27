@@ -48,8 +48,10 @@ def build_score_prompt(resume_json: dict, jd_data: dict) -> str:
     Populate the score_candidate.txt prompt template with resume + JD content.
     Formats projects into readable bullet strings for the LLM.
     """
-    prompt_path = Path(__file__).parent.parent / "prompts" / "score_candidate.txt"
-    template    = prompt_path.read_text()
+
+    project_root = Path(__file__).resolve().parent.parent
+    prompt_path = project_root / "prompts" / "score_candidate.txt"
+    template    = prompt_path.read_text(encoding="utf-8")
 
     # Format projects as readable text block
     project_lines = []
@@ -306,7 +308,7 @@ if __name__ == "__main__":
         "raw_text": "",
     }
 
-    with open("sample_data/jd_sample.json") as f:
+    with open("sample_data/jd_sample.json", encoding="utf-8") as f:
         jd_data = json.load(f)
 
     # Mock similarity already computed by Pinecone
