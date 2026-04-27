@@ -1,0 +1,8 @@
+anthropic==0.49.0
+langgraph==0.3.21
+pinecone-client==5.0.1
+openai==1.75.0
+pypdf2==3.0.1
+streamlit==1.45.0
+python-dotenv==1.1.0
+requests==2.32.3
