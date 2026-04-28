@@ -408,7 +408,7 @@ with st.sidebar:
         if jd_data:
             with st.spinner("Ingesting JD into Pinecone..."):
                 try:
-                    from ingest_jd import ingest_jd
+                    from modules.ingest_jd import ingest_jd
                     summary = ingest_jd(jd_data)
                     st.success(f"✓ {summary['chunks_ingested']} chunks indexed")
                 except Exception as e:

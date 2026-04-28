@@ -129,7 +129,7 @@ The compact layout helps recruiters scan candidate strength patterns quickly.
 ## Project Structure
 
 ```
-resume-shortlister/
+AI-Assitant/
 ├── main.py                        # Streamlit UI
 ├── graph.py                       # LangGraph pipeline (4 nodes)
 ├── state.py                       # PipelineState TypedDict
@@ -167,7 +167,7 @@ resume-shortlister/
 ### 1. Clone & install
 ```bash
 git clone <repo>
-cd resume-shortlister
+cd AI-Assitant
 python -m venv .venv
 
 # macOS/Linux
